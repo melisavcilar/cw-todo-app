@@ -3,7 +3,7 @@
   become: true
   vars:
     aws_region: us-east-1
-    ecr_registry: 104574732718.dkr.ecr.us-east-1.amazonaws.com
+    ecr_registry: XXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com
   tasks:
     - name: update all packages
       yum:
@@ -92,7 +92,7 @@
   vars:
     postgre_container: /home/ec2-user/postgresql
     container_name: melis_postgre
-    image_name: 104574732718.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:postgr
+    image_name: XXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:postgr
   tasks:
     - name: remove {{ container_name }} container and {{ image_name }} if exists
       shell: "docker ps -q --filter 'name={{ container_name }}' && docker stop {{ container_name }} && docker rm -fv {{ container_name }} && docker image rm -f {{ image_name }} || echo 'Not Found'"
@@ -115,7 +115,7 @@
   vars:
     container_path: /home/ec2-user/nodejs
     container_name: melis_nodejs
-    image_name: 104574732718.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:nodejs
+    image_name: XXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:nodejs
   tasks:
     - name: remove {{ container_name }} container and {{ image_name }} if exists
       shell: "docker ps -q --filter 'name={{ container_name }}' && docker stop {{ container_name }} && docker rm -fv {{ container_name }} && docker image rm -f {{ image_name }} || echo 'Not Found'"
@@ -134,7 +134,7 @@
   vars:
     container_path: /home/ec2-user/react
     container_name: melis_react
-    image_name: 104574732718.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:react
+    image_name: XXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:react
   tasks:
     - name: remove {{ container_name }} container and {{ image_name }} image if exists
       shell: "docker ps -q --filter 'name={{ container_name }}' && docker stop {{ container_name }} && docker rm -fv {{ container_name }} && docker image rm -f {{ image_name }} || echo 'Not Found'"
